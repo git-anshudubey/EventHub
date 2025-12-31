@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { FaCalendarAlt, FaMapMarkerAlt, FaTicketAlt, FaTag, FaDollarSign, FaUsers, FaClock } from 'react-icons/fa';
+import { FaCalendarAlt, FaMapMarkerAlt, FaTicketAlt, FaTag, FaRupeeSign, FaUsers, FaClock } from 'react-icons/fa';
 import './EventDetails.css';
 
 const EventDetails = () => {
@@ -71,10 +71,10 @@ const EventDetails = () => {
                             </div>
                         </div>
                         <div className="info-card">
-                            <FaDollarSign className="info-icon" />
+                            <FaRupeeSign className="info-icon" />
                             <div>
                                 <p className="info-label">Price per Ticket</p>
-                                <p className="info-value">${event.price}</p>
+                                <p className="info-value">₹{event.price}</p>
                             </div>
                         </div>
                         <div className="info-card">
@@ -112,7 +112,7 @@ const EventDetails = () => {
                         <div className="price-summary">
                             <div className="price-row">
                                 <span>Ticket Price</span>
-                                <span>${event.price}</span>
+                                <span>₹{event.price}</span>
                             </div>
                             <div className="price-row">
                                 <span>Quantity</span>
@@ -120,7 +120,7 @@ const EventDetails = () => {
                             </div>
                             <div className="price-total">
                                 <span>Total</span>
-                                <span>${event.price * quantity}</span>
+                                <span>₹{event.price * quantity}</span>
                             </div>
                         </div>
                         <button

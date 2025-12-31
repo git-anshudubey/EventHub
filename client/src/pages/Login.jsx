@@ -36,8 +36,8 @@ const Login = () => {
         <div className="auth-page">
             <div className="auth-container">
                 <div className="auth-header">
-                    <h1>Welcome Back</h1>
-                    <p>Login to access your account</p>
+                    <h1>Sign In to WTE</h1>
+                    <p>Welcome back! Please enter your details.</p>
                 </div>
                 {error && <div className="error-message">{error}</div>}
                 <form onSubmit={onSubmit} className="auth-form">

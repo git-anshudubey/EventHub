@@ -61,7 +61,7 @@ const sendBookingConfirmation = async (booking, user, event) => {
         <p>Your booking for <strong>${event.title}</strong> has been confirmed.</p>
         <p><strong>Date:</strong> ${new Date(event.date).toLocaleDateString()}</p>
         <p><strong>Tickets:</strong> ${booking.ticketCount}</p>
-        <p><strong>Total Paid:</strong> $${booking.totalPrice}</p>
+        <p><strong>Total Paid:</strong> ₹${booking.totalPrice}</p>
         <br>
         <p>Please present the attached QR code at the venue.</p>
     `;

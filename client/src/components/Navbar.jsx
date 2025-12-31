@@ -25,7 +25,7 @@ const Navbar = () => {
             <div className="navbar-container">
                 <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
                     <FaTicketAlt className="logo-icon" />
-                    <span>EventHub</span>
+                    <span>WTE - WhatTheEvent</span>
                 </Link>
 
                 <button

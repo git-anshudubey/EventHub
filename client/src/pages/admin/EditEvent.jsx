@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import { FaCalendarAlt, FaMapMarkerAlt, FaDollarSign, FaUsers, FaTag, FaFileAlt, FaSave } from 'react-icons/fa';
+import { FaCalendarAlt, FaMapMarkerAlt, FaRupeeSign, FaUsers, FaTag, FaFileAlt, FaSave } from 'react-icons/fa';
 import '../admin/CreateEvent.css';
 
 const EditEvent = () => {
@@ -177,7 +177,7 @@ const EditEvent = () => {
                         <div className="form-row">
                             <div className="form-group">
                                 <label htmlFor="price">
-                                    <FaDollarSign /> Ticket Price
+                                    <FaRupeeSign /> Ticket Price
                                 </label>
                                 <input
                                     type="number"

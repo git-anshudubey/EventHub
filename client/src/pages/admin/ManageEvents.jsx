@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { FaPlus, FaEdit, FaTrash, FaCalendarAlt, FaMapMarkerAlt, FaTicketAlt, FaSearch, FaEye, FaDollarSign } from 'react-icons/fa';
+import { FaPlus, FaEdit, FaTrash, FaCalendarAlt, FaMapMarkerAlt, FaTicketAlt, FaSearch, FaEye, FaRupeeSign } from 'react-icons/fa';
 import './ManageEvents.css';
 
 const ManageEvents = () => {
@@ -130,7 +130,7 @@ const ManageEvents = () => {
                             <div className="event-card-footer-data">
                                 <div className="price-cell">
                                     <span className="price-label">Price</span>
-                                    <span className="price-value">${event.price}</span>
+                                    <span className="price-value">₹{event.price}</span>
                                 </div>
                                 <div className="tickets-cell">
                                     <span className="data-label">Tickets Left</span>

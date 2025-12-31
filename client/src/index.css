@@ -167,7 +167,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
   padding: 2rem;
-  max-width: 1200px;
+  /* max-width: 1200px; Removed for full width */
   margin: 0 auto;
 }
 
@@ -210,9 +210,10 @@ body {
 
 /* Page Layouts */
 .page-container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 3rem;
+  /* Added slightly more side padding */
 }
 
 .page-header {

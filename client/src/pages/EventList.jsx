@@ -108,7 +108,7 @@ const EventList = () => {
                                     <div className="event-card-footer-data">
                                         <div className="price-cell">
                                             <span className="price-label">Price</span>
-                                            <span className="price-value">${event.price}</span>
+                                            <span className="price-value">₹{event.price}</span>
                                         </div>
                                         <div className="tickets-cell">
                                             <span className="data-label">Tickets</span>

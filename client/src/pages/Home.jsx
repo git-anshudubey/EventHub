@@ -12,7 +12,7 @@ const Home = () => {
         <div className="home-container">
             <div className="hero-section">
                 <h1 className="hero-title">
-                    Welcome to EventHub{user ? `, ${user.name}` : ''}! 🎉
+                    Welcome to WTE - WhatTheEvent{user ? `, ${user.name}` : ''}! 🎉
                 </h1>
                 <p className="hero-subtitle">
                     Discover and book amazing events happening around you

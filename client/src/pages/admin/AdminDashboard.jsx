@@ -34,7 +34,7 @@ const AdminDashboard = () => {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginBottom: '40px' }}>
                 <div className="card" style={{ textAlign: 'center' }}>
                     <h3>Total Revenue</h3>
-                    <p style={{ fontSize: '2em', fontWeight: 'bold', color: 'green' }}>${stats.totalRevenue}</p>
+                    <p style={{ fontSize: '2em', fontWeight: 'bold', color: 'green' }}>₹{stats.totalRevenue}</p>
                 </div>
                 <div className="card" style={{ textAlign: 'center' }}>
                     <h3>Total Bookings</h3>
@@ -63,7 +63,7 @@ const AdminDashboard = () => {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="sales" fill="#8884d8" name="Sales ($)" />
+                        <Bar dataKey="sales" fill="#8884d8" name="Sales (₹)" />
                         <Bar dataKey="bookings" fill="#82ca9d" name="Bookings" />
                     </BarChart>
                 </ResponsiveContainer>

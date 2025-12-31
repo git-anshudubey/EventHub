@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import AuthContext from '../context/AuthContext';
-import { FaTicketAlt, FaCalendarAlt, FaMapMarkerAlt, FaDollarSign, FaCheckCircle, FaClock, FaEye } from 'react-icons/fa';
+import { FaTicketAlt, FaCalendarAlt, FaMapMarkerAlt, FaRupeeSign, FaCheckCircle, FaClock, FaEye } from 'react-icons/fa';
 import './MyBookings.css';
 
 const MyBookings = () => {
@@ -56,7 +56,7 @@ const MyBookings = () => {
                                 className="booking-header"
                                 style={booking.event?.image ? {
                                     backgroundImage: `url(http://localhost:5000/${booking.event.image})`
-                                } : {}}
+                                } : { backgroundColor: '#eee' }}
                             >
                                 {booking.event?.image && (
                                     <img
@@ -66,8 +66,10 @@ const MyBookings = () => {
                                     />
                                 )}
                                 <div className="booking-info-text">
-                                    <h3>{booking.event?.title || 'Event'}</h3>
-                                    <p className="booking-date">{new Date(booking.event?.date).toLocaleDateString()}</p>
+                                    <h3>{booking.event?.title || 'Event Deleted'}</h3>
+                                    <p className="booking-date">
+                                        {booking.event?.date ? new Date(booking.event.date).toLocaleDateString() : 'N/A'}
+                                    </p>
                                 </div>
                             </div>
 
@@ -76,7 +78,7 @@ const MyBookings = () => {
                                     <span className="data-label">Date</span>
                                     <div className="data-content">
                                         <FaCalendarAlt />
-                                        <span>{new Date(booking.event?.date).toLocaleDateString()}</span>
+                                        <span>{booking.event?.date ? new Date(booking.event.date).toLocaleDateString() : 'N/A'}</span>
                                     </div>
                                 </div>
 
@@ -84,7 +86,7 @@ const MyBookings = () => {
                                     <span className="data-label">Location</span>
                                     <div className="data-content">
                                         <FaMapMarkerAlt />
-                                        <span>{booking.event?.location}</span>
+                                        <span>{booking.event?.location || 'N/A'}</span>
                                     </div>
                                 </div>
 
@@ -103,7 +105,7 @@ const MyBookings = () => {
                                 <div className="booking-data-cell price-cell">
                                     <span className="data-label">Total Paid</span>
                                     <div className="data-content">
-                                        <span className="booking-price">${booking.totalPrice}</span>
+                                        <span className="booking-price">₹{booking.totalPrice}</span>
                                     </div>
                                 </div>
 
@@ -122,7 +124,7 @@ const MyBookings = () => {
                                     className="booking-btn view-btn"
                                     title="View"
                                 >
-                                    <FaEye /> View
+                                    <FaEye /> View Event
                                 </Link>
                                 <span className="booking-id">Booking ID: {booking._id.slice(-8)}</span>
                             </div>

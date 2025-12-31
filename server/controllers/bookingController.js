@@ -14,17 +14,11 @@ const createBooking = async (req, res) => {
             return res.status(404).json({ message: 'Event not found' });
         }
 
-        // Atomic check and update
-        // Decrement availableTickets ONLY if it is greater than or equal to ticketCount
-        const updatedEvent = await Event.findOneAndUpdate(
-            { _id: eventId, availableTickets: { $gte: ticketCount } },
-            { $inc: { availableTickets: -ticketCount } },
-            { new: true }
-        );
-
-        if (!updatedEvent) {
+        // Check availability without deducting yet
+        if (event.availableTickets < ticketCount) {
             return res.status(400).json({ message: 'Not enough tickets available' });
         }
+
 
         const totalPrice = event.price * ticketCount;
 
@@ -33,7 +27,7 @@ const createBooking = async (req, res) => {
             event: eventId,
             ticketCount,
             totalPrice,
-            status: 'confirmed',
+            status: 'pending',
         });
 
         res.status(201).json(booking);
@@ -47,7 +41,7 @@ const createBooking = async (req, res) => {
 // @access  Private
 const getMyBookings = async (req, res) => {
     try {
-        const bookings = await Booking.find({ user: req.user.id }).populate('event');
+        const bookings = await Booking.find({ user: req.user.id, status: 'confirmed' }).populate('event');
         res.status(200).json(bookings);
     } catch (error) {
         res.status(500).json({ message: error.message });

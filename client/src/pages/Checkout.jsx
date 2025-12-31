@@ -114,7 +114,7 @@ const Checkout = () => {
                         <div className="price-breakdown">
                             <div className="price-row">
                                 <span>Ticket Price</span>
-                                <span>${event.price}</span>
+                                <span>₹{event.price}</span>
                             </div>
                             <div className="price-row">
                                 <span>Quantity</span>
@@ -122,11 +122,11 @@ const Checkout = () => {
                             </div>
                             <div className="price-row subtotal">
                                 <span>Subtotal</span>
-                                <span>${(event.price * quantity).toFixed(2)}</span>
+                                <span>₹{(event.price * quantity).toFixed(2)}</span>
                             </div>
                             <div className="price-row total">
                                 <span>Total</span>
-                                <span>${(event.price * quantity).toFixed(2)}</span>
+                                <span>₹{(event.price * quantity).toFixed(2)}</span>
                             </div>
                         </div>
 

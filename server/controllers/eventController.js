@@ -137,6 +137,8 @@ const updateEvent = async (req, res) => {
     }
 };
 
+const Booking = require('../models/Booking'); // Import Booking model
+
 // @desc    Delete event
 // @route   DELETE /api/events/:id
 // @access  Private (Admin)
@@ -152,6 +154,12 @@ const deleteEvent = async (req, res) => {
         if (event.organizer.toString() !== req.user.id && req.user.role !== 'admin') {
             return res.status(401).json({ message: 'User not authorized' });
         }
+
+        // AUTO-CANCEL bookings associated with this event
+        await Booking.updateMany(
+            { event: req.params.id },
+            { $set: { status: 'cancelled' } }
+        );
 
         await event.deleteOne();
 

@@ -7,7 +7,7 @@ const User = require('./models/User');
 
 const createAdmin = async () => {
     try {
-        await mongoose.connect(process.env.DB_URI);
+        await mongoose.connect(process.env.DB_URI || 'mongodb://localhost:27017/event-booking');
         console.log('MongoDB connected');
 
         // Check if admin already exists

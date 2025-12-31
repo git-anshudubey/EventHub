@@ -37,7 +37,7 @@ const createCheckoutSession = async (req, res) => {
             line_items: [
                 {
                     price_data: {
-                        currency: 'usd',
+                        currency: 'inr',
                         product_data: {
                             name: booking.event.title,
                             description: booking.event.description,
@@ -94,6 +94,13 @@ const webhook = async (req, res) => {
                 booking.status = 'confirmed';
                 await booking.save();
                 console.log(`Booking ${bookingId} paid and confirmed.`);
+
+                // Deduct tickets only after successful payment
+                // We restart logic here to find event and decrement
+                await Event.findByIdAndUpdate(booking.event._id, {
+                    $inc: { availableTickets: -booking.ticketCount }
+                });
+
 
                 // Send Confirmation Email
                 const { sendBookingConfirmation } = require('../utils/emailService');
